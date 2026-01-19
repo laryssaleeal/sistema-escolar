@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Turmas - Sistema Escolar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Cabeçalho -->
+        <header class="dashboard-header">
+            <h1>📚 Sistema Escolar</h1>
+            <div class="user-info">
+                <span id="nomeUsuario">👨‍🏫 Carregando...</span>
+                <button onclick="logout()" class="btn-logout">Sair</button>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main class="dashboard-main">
+            <div class="action-bar">
+                <h2>Minhas Turmas</h2>
+                <button class="btn-primary" onclick="mostrarFormCriarTurma()">➕ Nova Turma</button>
+            </div>
+            
+            <!-- Formulário Criar Turma (oculto inicialmente) -->
+            <div id="formCriarTurma" class="card" style="display: none;">
+                <h3>Criar Nova Turma</h3>
+                <form id="criarTurmaForm">
+                    <div class="input-group">
+                        <label for="nomeTurma">Nome da Turma:</label>
+                        <input type="text" id="nomeTurma" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="disciplina">Disciplina:</label>
+                        <select id="disciplina" required>
+                            <option value="">Selecione a disciplina</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="ano">Ano:</label>
+                        <input type="number" id="ano" value="2025" required>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn-primary">Criar</button>
+                        <button type="button" class="btn-secondary" onclick="fecharFormTurma()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Loading -->
+            <div id="loading" class="loading">
+                <p>Carregando turmas...</p>
+            </div>
+            
+            <!-- Container de Turmas -->
+            <div id="turmasContainer" class="cards-container" style="display: none;">
+                <!-- Os cards serão inseridos aqui pelo JavaScript -->
+            </div>
+            
+            <!-- Mensagem quando não houver turmas -->
+            <div id="semTurmas" class="empty-state" style="display: none;">
+                <p>📋 Você ainda não criou nenhuma turma.</p>
+                <button class="btn-primary" onclick="mostrarFormCriarTurma()">➕ Criar Primeira Turma</button>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/dashboard-professor.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Alunos - Sistema Escolar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <style>
+        .alunos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .aluno-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .aluno-info h4 {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+        }
+        
+        .aluno-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .btn-remover {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .btn-remover:hover {
+            background: #c82333;
+        }
+        
+        .adicionar-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .select-aluno {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+        
+        .select-wrapper {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .select-wrapper label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .select-aluno select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .btn-adicionar {
+            white-space: nowrap;
+            padding: 0.75rem 1.5rem;
+            min-width: 140px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>📚 Sistema Escolar</h1>
+            <div class="user-info">
+                <span id="nomeUsuario">👨‍🏫 Carregando...</span>
+                <button onclick="voltarDashboard()" class="btn-secondary">← Voltar</button>
+                <button onclick="logout()" class="btn-logout">Sair</button>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+            <h2 id="tituloTurma">Gerenciar Alunos</h2>
+            
+            <!-- Adicionar Aluno -->
+            <div class="adicionar-section">
+                <h3>Adicionar Aluno</h3>
+                <div class="select-aluno">
+                    <div class="select-wrapper">
+                        <label for="selectAluno">Selecione o aluno:</label>
+                        <select id="selectAluno">
+                            <option value="">Carregando alunos...</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary btn-adicionar" onclick="adicionarAluno()">
+                        ➕ Adicionar
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Loading -->
+            <div id="loading" class="loading">
+                <p>Carregando alunos da turma...</p>
+            </div>
+            
+            <!-- Lista de Alunos -->
+            <div id="alunosContainer" style="display: none;">
+                <h3>Alunos Matriculados (<span id="totalAlunos">0</span>)</h3>
+                <div id="alunosGrid" class="alunos-grid">
+                    <!-- Alunos serão inseridos aqui -->
+                </div>
+            </div>
+            
+            <!-- Sem Alunos -->
+            <div id="semAlunos" class="empty-state" style="display: none;">
+                <p>📋 Nenhum aluno matriculado nesta turma ainda.</p>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/gerenciar-alunos.js"></script>
+</body>
+</html>

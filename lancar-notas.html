@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lançar Notas - Sistema Escolar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <style>
+        .notas-table {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .notas-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .notas-table th {
+            background: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .notas-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .notas-table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .notas-table input[type="number"] {
+            width: 80px;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .notas-table input[type="number"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        .media-cell {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        
+        .status-aprovado {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .status-reprovado {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .status-cursando {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        .btn-salvar-tudo {
+            margin-top: 1rem;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>📚 Sistema Escolar</h1>
+            <div class="user-info">
+                <span id="nomeUsuario">👨‍🏫 Carregando...</span>
+                <button onclick="voltarDashboard()" class="btn-secondary">← Voltar</button>
+                <button onclick="logout()" class="btn-logout">Sair</button>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+            <h2 id="tituloTurma">Lançar Notas</h2>
+            
+            <!-- Loading -->
+            <div id="loading" class="loading">
+                <p>Carregando alunos...</p>
+            </div>
+            
+            <!-- Tabela de Notas -->
+            <div id="notasContainer" style="display: none;">
+                <div class="notas-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aluno</th>
+                                <th style="text-align: center;">AV1</th>
+                                <th style="text-align: center;">AV2</th>
+                                <th style="text-align: center;">AV3</th>
+                                <th style="text-align: center;">Média</th>
+                                <th style="text-align: center;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="notasBody">
+                            <!-- Linhas serão inseridas aqui -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <button class="btn-primary btn-salvar-tudo" onclick="salvarTodasNotas()">
+                    💾 Salvar Todas as Notas
+                </button>
+            </div>
+            
+            <!-- Sem Alunos -->
+            <div id="semAlunos" class="empty-state" style="display: none;">
+                <p>📋 Nenhum aluno matriculado nesta turma.</p>
+                <button class="btn-primary" onclick="voltarDashboard()">
+                    ← Voltar ao Dashboard
+                </button>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/lancar-notas.js"></script>
+</body>
+</html>

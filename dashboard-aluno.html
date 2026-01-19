@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Notas - Sistema Escolar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Cabeçalho -->
+        <header class="dashboard-header">
+            <h1>📚 Sistema Escolar</h1>
+            <div class="user-info">
+                <span id="nomeUsuario">👨‍🎓 Carregando...</span>
+                <button onclick="logout()" class="btn-logout">Sair</button>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main class="dashboard-main">
+            <h2>Minhas Notas</h2>
+            
+            <!-- Loading -->
+            <div id="loading" class="loading">
+                <p>Carregando suas notas...</p>
+            </div>
+            
+            <!-- Container de Notas -->
+            <div id="notasContainer" class="cards-container" style="display: none;">
+                <!-- Os cards serão inseridos aqui pelo JavaScript -->
+            </div>
+            
+            <!-- Mensagem quando não houver notas -->
+            <div id="semNotas" class="empty-state" style="display: none;">
+                <p>📋 Você ainda não possui notas lançadas.</p>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/dashboard-aluno.js"></script>
+</body>
+</html>
