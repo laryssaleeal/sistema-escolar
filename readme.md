@@ -228,15 +228,15 @@ POST   /api/disciplinas             - Criar disciplina
 
 | 🔐 Login | 👨‍🎓 Dashboard Aluno |
 |--------|---------------------|
-| ![](docs/Login.png) | ![](docs/Dashboard-Aluno.png) |
+| ![](docs/Login.PNG) | ![](docs/Dashboard-Aluno.PNG) |
 
 | 👨‍🏫 Dashboard Professor | 👥 Gerenciar Alunos |
 |-------------------------|--------------------|
-| ![](docs/Dashboard-Professor.png) | ![](docs/Gerenciar-Alunos.png) |
+| ![](docs/Dashboard-Professor.PNG) | ![](docs/Gerenciar-Alunos.PNG) |
 
 | 📝 Lançar Notas |
 |----------------|
-| ![](docs/Lancar-Notas.png) |
+| ![](docs/Lançar-Notas.PNG) |
 
 ## 🤝 Contribuindo
 
