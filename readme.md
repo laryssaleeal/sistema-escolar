@@ -166,7 +166,7 @@ sistema-escolar/
 
 ### Diagrama EER
 
-![EER Diagram](docs/diagrama-eer.svg)
+![EER Diagram](docs/diagrama-eer.png)
 
 ## 🔑 Usuários de Teste
 
